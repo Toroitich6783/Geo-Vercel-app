@@ -1,12 +1,6 @@
   // Your web app's Firebase configuration
   const firebaseConfig = {
-    apiKey: "AIzaSyD0asHo0qDj5zYplavVzFUsNWL1Da1e1c8",
-    authDomain: "sendinfo-9f1cb.firebaseapp.com",
-    databaseURL: "https://sendinfo-9f1cb-default-rtdb.firebaseio.com",
-    projectId: "sendinfo-9f1cb",
-    storageBucket: "sendinfo-9f1cb.appspot.com",
-    messagingSenderId: "842821060420",
-    appId: "1:842821060420:web:47008a44a86e78be69b911"
+
   };
 // initialize firebase
 firebase.initializeApp(firebaseConfig);
