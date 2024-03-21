@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'DSSCoffeeProject.wsgi.application'
+WSGI_APPLICATION = 'DSSCoffeeProject.wsgi.app'
 
 
 # Database
