@@ -3,22 +3,22 @@ from typing import Any
 from django.shortcuts import render
 from django.views.generic import TemplateView 
 
-import matplotlib.pyplot as plt
-colormaps=plt.cm.datad.keys()
-
-#Importation of variAous Libraries or packages...
-from os import path as op
-import geemap
-import ee
-import folium
-import geemap.foliumap as geemap
 # import matplotlib.pyplot as plt
-from django.http import HttpResponse
-from folium import plugins
-from folium.plugins import Draw
+# colormaps=plt.cm.datad.keys()
 
-from .forms import DateForm
-from datetime import datetime
+# #Importation of variAous Libraries or packages...
+# from os import path as op
+# import geemap
+# import ee
+# import folium
+# import geemap.foliumap as geemap
+# # import matplotlib.pyplot as plt
+# from django.http import HttpResponse
+# from folium import plugins
+# from folium.plugins import Draw
+
+# from .forms import DateForm
+# from datetime import datetime
 
 # Create your views here.
 #HomeMap
