@@ -8,7 +8,7 @@ from django.views.generic import TemplateView
 
 # #Importation of variAous Libraries or packages...
 # from os import path as op
-# import geemap
+import geemap
 # import ee
 # import folium
 # import geemap.foliumap as geemap
