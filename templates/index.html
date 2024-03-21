@@ -1,0 +1,727 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Icon Font Stylesheet -->
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  
+
+  <title>DSS-Ecosystem</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <meta name="author" content=""> {% load static %}
+
+  <style>
+ .mybody {
+      background-color: black; /* Set your desired background color */
+      /* Or use background property for more advanced backgrounds (image, gradient, etc.) */
+      /* background: url('your-image.jpg') no-repeat center center fixed; */
+      /* background-size: cover; */
+    }
+    .header{
+      background-color: black; /* Set your desired background color */
+      /* Or use background property for more advanced backgrounds (image, gradient, etc.) */
+      /* background: url('your-image.jpg') no-repeat center center fixed; */
+      /* background-size: cover; */
+    }
+    .scroll {
+      max-height: 600px;
+      overflow-y: scroll;
+      width: 250px
+    }
+    label{
+      color:black;
+    }
+    /*Start of Rotaing Earth*/
+    body {
+      background:#000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+     }
+     .circle {
+       height: 400px;
+       width: 400px;
+       border-radius: 50%;
+       border: 1px solid gray;
+       position: absolute;
+       top: 0;
+       left: 0;
+       bottom: 0;
+       right: 0;
+       margin: auto;
+     }
+     .earth {
+       height: 20px;
+       width: 20px;
+       border-radius: 50%;
+       background: radial-gradient(circle at 100px 100px, blue, #eee);
+       animation: earth-rotate 5s linear infinite;
+       position: absolute;
+       top: 0;
+       left: 0;
+       bottom: 0;
+       right: 0;
+       margin: auto;
+     }
+     
+     .sun {
+       display: block;
+       background: black;
+       border-radius: 50%;
+       height: 200px;
+       width: 200px;
+       position: absolute;
+       top: 0;
+       left: 0;
+       bottom: 0;
+       right: 0;
+       margin: auto;
+       background: radial-gradient(circle at 100px 100px, yellow, #000);
+     }
+     
+     .solar-system {
+       width: 1000px;
+       heigth: 1000px;
+     }
+     
+     .moon {
+       height: 5px;
+       width: 5px;
+       border-radius: 50%;
+       background: radial-gradient(circle at 100px 100px, green, #fff);
+       animation: moon-rotate 2s linear infinite;
+       position: absolute;
+       top: 0;
+       left: 0;
+       bottom: 0;
+       right: 0;
+       margin: auto;
+     }
+     
+     @keyframes earth-rotate {
+       from {
+         transform: rotate(0deg) translateX(200px) rotate(0deg);
+       }
+       to {
+         transform: rotate(360deg) translateX(200px) rotate(-360deg);
+       }
+     }
+     
+     @keyframes moon-rotate {
+       from {
+         transform: rotate(0deg) translateX(40px) rotate(0deg);
+       }
+       to {
+         transform: rotate(360deg) translateX(40px) rotate(-360deg);
+       }
+     }
+
+  /*End of spinning Earth*/
+
+  /*Start of proccessing animation*/
+
+  .running {
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -60%);
+}
+
+#container22 {
+    width: 200px;
+    height: 200px;
+}
+
+@keyframes animation {
+    0% {
+        stroke-dasharray: 1 98;
+        stroke-dashoffset: -105;
+    }
+    50% {
+        stroke-dasharray: 80 10;
+        stroke-dashoffset: -160;
+    }
+    100% {
+        stroke-dasharray: 1 98;
+        stroke-dashoffset: -300;
+    }
+}
+
+#spinner22 {
+    transform-origin: center;
+    animation-name: animation;
+    animation-duration: 1.2s;
+    animation-timing-function: cubic-bezier;
+    animation-iteration-count: infinite;
+}
+  /*End of proccessing animation*/
+  .runButton {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.runButton:hover {
+    background-color:red;
+}
+  </style>
+
+
+  <!-- Favicons -->
+  <link href="static/img/DSS.png" rel="icon">
+  <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/quill/quill.snow.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/quill/quill.bubble.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/simple-datatables/style.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style2.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/map.css' %}">
+
+
+  <!-- <link rel="stylesheet" href="{% static 'style2.css' %}"> -->
+
+
+  <script>
+    {{ map.header.render|safe }}
+   
+
+    
+   </script> 
+
+</head>
+
+<body class="mybody">
+
+  <!-- ======= Header ======= -->
+  <header style="background-color: black; position: absolute;" id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+        <img src="static/img/DSS1.png" alt="">
+       
+    
+      <i class="bi bi-list toggle-sidebar-btn" style="color: red;"></i>
+      <a class="d-none d-lg-block" style="font-size: 14px;margin-left:11px; color:white;" href="/">
+        Coffee<small style="margin-top: 3px;">-Decision<br>Support<br>System <sup>TM</sup></small>
+    </a>
+  </a>
+  
+    </div><!-- End Logo -->
+
+<!-- start of Analysis -->
+    <div class="my-nav-item my-dropdown">
+      <a href="#" class="my-nav-link">
+        <i class="fa fa-fw fa-indent text-success"></i>Analysis
+        <i class="fa fa-fw fa-caret-down"></i>
+      </a> 
+      <div class="my-dropdown-menu fade-up m-0" style="z-index: 9999;">
+                   
+        <a href="" class="my-dropdown-item"><i class="fa fa-fw fa-wrench text-info me-2"></i>Analysis</a>
+      </div>
+    </div>
+<!-- End of Analysis -->
+
+<!-- Start of Quick links -->
+    <div class="my-nav-item my-dropdown">
+      <a href="#" class="my-nav-link">
+        <i class="fa fa-fw fa-indent text-success"></i>Quick links
+        <i class="fa fa-fw fa-caret-down"></i>
+      </a> 
+      <div class="my-dropdown-menu fade-up m-0">
+          <a href="#" class="my-dropdown-item"><i class="fa fa-fw fa-map-marker text-info me-2"></i>Quick links</a>
+        <br>
+     
+          <a href="" class="my-dropdown-item"><i class="fa fa-fw fa-flask text-info me-2"></i>Quick links</a>
+
+      </div>
+    </div>
+<!-- End of Quick links -->
+
+<!-- start of Geolocation -->
+    <div class="my-nav-item my-dropdown"id="tele">
+      <a href="#" class="my-nav-link">
+        <i class="fa fa-fw fa-indent text-success"></i>Geolocation<i class="fa fa-fw fa-caret-down"></i>
+      </a> 
+      <div class="my-dropdown-menu fade-up m-0">
+        <a href="{% url 'map'%}" class="my-dropdown-item">
+          <i class="fa fa-fw fa-anchor text-info me-2"></i> Geolocation
+        </a>
+        <a href="#" class="my-dropdown-item">
+          <i class="fa fa-fw fa-users text-info me-2"></i> Geolocation
+        </a>
+  
+      </div>
+    </div>
+<!-- End of Geolocation -->
+
+<!-- Start of Manual -->
+<div class="my-nav-item my-dropdown">
+  <a href="#" class="my-nav-link">
+    <i class="fa fa-fw fa-indent text-success"></i>Manual
+    <i class="fa fa-fw fa-caret-down"></i>
+  </a> 
+  <div class="my-dropdown-menu fade-up m-0">
+      <a href="#" class="my-dropdown-item"><i class="fa fa-fw fa-map-marker text-info me-2"></i>Manual</a>
+    <br>
+ 
+      <a href="" class="my-dropdown-item"><i class="fa fa-fw fa-flask text-info me-2"></i>Manual</a>
+
+  </div>
+</div>
+<!-- End of Manual -->
+
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div> 
+    <!-- End Search Bar -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+         <li class="nav-item d-block d-lg-none">
+          <a class="nav-link nav-icon search-bar-toggle " href="#">
+            <i class="bi bi-search"></i>
+          </a>
+        </li> 
+        <!-- End Search Icon-->
+
+  
+        
+        <li class="nav-item dropdown pe-3">
+
+     
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" style="overflow: auto;">
+
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar" style="z-index: 9999; position: absolute; height: 101%;">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          
+
+          <!-- Start of sidebar -->
+   
+          <div class="dropdown-menu fade-up m-0">
+            <div class="scroll" style="font-size:12px">
+
+              <li>
+                  <a  style="font-size:18px" href="" class="dropdown-item"><i class="fa fa-fw fa-home fa-m-fix"></i>DSS Coffee</a>
+              </li>
+              <li>
+                  <hr class="sidebar-hr">
+              </li>
+              <li style="font-size:18px" class="sidebar-sub-brand">
+                  <a href="" class="dropdown-item"><i class="fa fa-fw fa-indent fa-m-fix text-primary me-1">About</i></a>
+              </li>
+              <br>
+              <li>
+                  <a href="" class="dropdown-item"><i class="fa fa-fw fa-calculator fa-m-fix text-info"></i>Varieties</a>
+              </li>
+              <br>
+              <li>
+                  <a href="" class="dropdown-item"><i class="fa fa-fw fa-product-hunt fa-m-fix text-info"></i> Product</a>
+              </li>
+              <br>
+              <li>
+                  <a href="" class="dropdown-item"><i class="fa fa-fw fa-database fa-m- text-info"></i>Origin</a>
+              </li>
+              <br>
+              <li>
+                  <a href="" class="dropdown-item"><i class="fa fa-fw fa-money fa-m-fix text-info"></i> Sales</a>
+              </li>
+              <br>
+              <li>
+                  <a href="" class="dropdown-item"><i class="fa fa-fw fa-clipboard fa-m-fix text-info"></i>Caffeine Content</a>
+              </li>           
+              <br>
+              <li>
+                  <hr class="sidebar-hr sidebar-short">
+              </li>
+
+              <li class="sidebar-sub-brand">
+                  <a style="font-size:18px" href=""class="dropdown-item"><i class="fa fa-fw fa-indent fa-m-fix text-primary me-1">Analysis</i></a>
+              </li>
+              <br>
+              <li>
+                  <a href="" class="dropdown-item"><i class="fa fa-fw fa-map-marker fa-m-fix text-info"></i>Land Cover Classification</a>
+              </li>
+              <br>
+              <li>
+                  <a href="" class="dropdown-item"><i class="fa fa-fw fa-tasks fa-m-fix text-info"></i>Spatial Distribution Analysis</a>
+              </li>
+              <br>
+
+              <li>
+                  <a href="" class="dropdown-item"><i class="fa fa-fw fa-retweet fa-m-fix text-info"></i>Elevation Analysis</a>
+              </li>
+              <br>
+              <li>
+                  <a href="" class="dropdown-item"><i class="fa fa-fw fa-th fa-m-fix text-info"></i>Slope and Aspect Analysis</a>
+              </li>
+              <br>
+              <li>
+                  <a href="" class="dropdown-item"><i class="fa fa-fw fa-anchor fa-m-fix text-info"></i>Soil Mapping</a>
+              </li>
+              <br>
+              <li>
+                  <a href="" class="dropdown-item"><i class="fa fa-fw fa-users fa-m-fix text-info"></i>Hydrological Modeling</a>
+              </li>
+              <br>
+              <li>
+                  <a href="" class="dropdown-item"><i class="fa fa-fw fa-flask fa-m-fix text-info"></i> Soil Analysis</a>
+              </li>
+              <br>
+            
+            
+        </div>
+          </div>
+      </div>
+
+
+
+  
+
+      <!-- End of sidebar -->
+
+          
+      </li><!-- End Blank Page Nav -->
+
+    </ul>
+
+  </aside><!-- End Sidebar-->
+
+  <main id="main" class="main">
+    
+
+    <section class="section dashboard">
+    <div class="maparea">
+      {{map.html.render|safe}}
+
+
+      
+    </div>
+
+      <h3 id="successMessage" class="message success-message">{{ success_message }}</h3>
+      <h3 id="errorMessage" class="message error-message">{{ error_message }}</h3>
+      <script>
+  // Set the duration for the messages to be visible in milliseconds (e.g., 10000ms for 10 seconds)
+        var duration = 10000;
+    
+  // Get references to the message elements
+        var successMessage = document.getElementById('successMessage');
+        var errorMessage = document.getElementById('errorMessage');
+    
+  // Hide the success message after the specified duration
+        setTimeout(function () {
+            successMessage.style.display = 'none';
+        }, duration);
+    
+  // Hide the error message after the specified duration
+        setTimeout(function () {
+            errorMessage.style.display = 'none';
+        }, duration);
+    </script>
+   <!--compenents start-->
+  <div class="compenents">
+  
+  <!--Field | Area start-->
+  <label style="color: white" for="Selectregion_dropdown">ROI | Field:</label><br>
+  <select class="drop_select" onchange="location = this.value;">
+        <option value="" selected disabled> Select Region/Field</option>
+        {% comment %} <option value="{% url 'MyField' %}">Kipkelion west constituency</option>
+        <option value="{% url 'MyField2' %}">Nyeri</option> {% endcomment %}
+        <option value="">Kirinyaga</option>
+        <option value="">Murang'a</option>
+        <option value="">Kiambu</option>
+        <option value="">Embu</option>
+        <option value="">Meru</option>
+        <option value="">Bungoma</option>
+        <option value="">Kisii</option>
+        <option value="">Kericho</option>
+
+      </select>
+      <br>
+      <br>
+  <!--Field | Area End-->
+  
+
+  
+  <!--Area Measured start-->
+   <label style="color: white; width: 200px;" >Field Measurement:</label><br>
+    <textarea style="background:black; color:white" rows="1" cols="33" readonly>{{ areaestimate1 }}</textarea>
+    <br>
+    <br>
+  <!--Area Measured End-->
+  
+  <!--Area Units start-->
+    <label style="color: white;  width: 200px;"  for="Area_Units_dropdown">Units Conversion:</label><br>
+    <select class="drop_select" id="drop_select1" onchange="storeSelection('drop_select1', this.value); location = this.value;">
+      <option selected disabled>Select Area Unit</option>
+      {% comment %} <option value="{% url 'areameters' %}">Meters</option>
+      <option value="{% url 'Acres' %}">Acres(s)</option>
+      <option value="{% url 'Hectares' %}">Hectares</option>
+      <option value="{% url 'Kilometers' %}">Kilometers</option>    {% endcomment %}
+    </select>
+    
+    <script>
+    window.onload = function() {
+      var select1 = document.getElementById('drop_select1');
+      select1.value = localStorage.getItem('drop_select1');
+    }
+    function storeSelection(selectId, value) {
+      localStorage.setItem(selectId, value);
+    }
+    </script>
+    <br>
+    
+  <!--Area Units End-->
+  
+  <!--Date Range Start-->
+    <label style="color: white"  for="DateRange_dropdown">Date Range:</label>
+    <form  style="background:black;width: 100px" method="post">
+      {% csrf_token %}
+      {{ form.as_table }}
+      <p><input style="color:black" type="submit" value="Selected"></p>
+    </form>
+    <br>
+  <!--Date Range End-->
+    
+  <!--DataSetsstart-->
+  <div style="color: white;">
+    <label style="color: white" for="spectral_dropdown">Data Sets | Parameters:</label>
+    <form id="redirectForm">
+      <label style="color: white;">
+        <input type="checkbox" name="option1" value="" id="checkboxOption1" onchange="saveSelection()">
+        Sentinel 2A: NDVI
+    </label>
+    <br>
+    <label style="color: white;">
+      <input type="checkbox" name="option2" value="" id="checkboxOption2" onchange="saveSelection()">
+      LULC
+      </label>
+  <br>
+    
+        <label style="color: white;">
+            <input type="checkbox" name="option3" value="" id="checkboxOption3" onchange="saveSelection()">
+            Rainfall
+        </label>
+        <br>
+        <label style="color: white;">
+            <input type="checkbox" name="option4" value="" id="checkboxOption4" onchange="saveSelection()">
+            Temperature
+        </label>
+        <br>
+        <label style="color: white;">
+          <input type="checkbox" name="option5" value="" id="checkboxOption5" onchange="saveSelection()">
+            Soils
+        </label>
+        <br>
+        <label style="color: white;">
+          <input type="checkbox" name="option6" value="" id="checkboxOption6" onchange="saveSelection()">
+          DEM | Slope
+      </label>
+      <br>
+     
+      <label style="color: white;">
+        <input type="checkbox" name="option7" value="" id="checkboxOption7" onchange="saveSelection()">
+        Sentinel 2A: EVI
+    </label>
+    <br>
+    </form>
+
+    <script>
+        // Restore checkbox state from local storage on page load
+        window.onload = function () {
+            restoreSelection();
+        };
+
+        // Add event listener for checkbox change
+        document.getElementById('redirectForm').addEventListener('change', function () {
+            redirect();
+        });
+
+        function saveSelection() {
+            var form = document.getElementById('redirectForm');
+            var checkboxes = form.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(function (checkbox) {
+                localStorage.setItem(checkbox.id, checkbox.checked);
+            });
+        }
+
+        function restoreSelection() {
+            var form = document.getElementById('redirectForm');
+            var checkboxes = form.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(function (checkbox) {
+                var isChecked = localStorage.getItem(checkbox.id) === 'true';
+                checkbox.checked = isChecked;
+            });
+        }
+
+        function redirect() {
+            var form = document.getElementById('redirectForm');
+            var checkboxes = form.querySelectorAll('input[type="checkbox"]:checked');
+
+            if (checkboxes.length > 0) {
+                var selectedOption = checkboxes[0].value;
+                window.location.href = selectedOption;
+            }
+        }
+    </script>
+
+    <br>
+</div>
+  <!--DataSets End-->
+  
+  <!--Variable/spectral analysis start-->
+  <label class="Variables" style="color: white; width: 200px;"  for="spectral_dropdown">DSS Overlay:</label>
+  <br>
+  <button title="Click to run DSS Analysis"  class="runButton"  onclick="showspinner22()">Run DSS Analysis</button>
+
+    <script>
+        function showspinner22() {
+            var container22 = document.getElementById("container22");
+
+            if (container22.style.display === "none") {
+                container22.style.display = "block";
+
+                // Simulate a delay before redirecting (you can adjust the timeout as needed)
+                setTimeout(function () {
+                    container22.style.display = "none";
+                    // Redirect to the desired URL
+                    window.location.href = "";
+                }, 3000); // 3000 milliseconds (3 seconds) delay for demonstration purposes
+            }
+        }
+    </script>
+
+    <div class="running" id="container22" style="display: none; z-index: 9999;">
+        <svg viewBox="0 0 100 100">
+            <defs>
+                <filter id="shadow">
+                    <feDropShadow dx="0" dy="0" stdDeviation="1.5" flood-color="#fc6767"/>
+                </filter>
+            </defs>
+            <circle id="spinner22" style="fill:transparent;stroke:#dd2476;stroke-width: 7px;stroke-linecap: round;filter:url(#shadow);" cx="50" cy="50" r="45"/>
+        </svg>
+    </div>
+
+  <!--Variable/spectral analysis End-->
+  
+  <!--Resetting Everything start-->
+  <label class="Variables" style="color: white; width: 200px;"  for="spectral_dropdown">Reset:</label>
+  <br>
+  <button title="Restart DSS Model"  class="runButton"  onclick="showspinner22()">Reset</button>
+
+    <script>
+        function showspinner22() {
+            var container22 = document.getElementById("container22");
+
+            if (container22.style.display === "none") {
+                container22.style.display = "block";
+
+                // Simulate a delay before redirecting (you can adjust the timeout as needed)
+                setTimeout(function () {
+                    container22.style.display = "none";
+                    // Redirect to the desired URL
+                    window.location.href = "";
+                }, 3000); // 3000 milliseconds (3 seconds) delay for demonstration purposes
+            }
+        }
+    </script>
+
+    <div class="running" id="container22" style="display: none; z-index: 9999;">
+        <svg viewBox="0 0 100 100">
+            <defs>
+                <filter id="shadow">
+                    <feDropShadow dx="0" dy="0" stdDeviation="1.5" flood-color="#fc6767"/>
+                </filter>
+            </defs>
+            <circle id="spinner22" style="fill:transparent;stroke:#dd2476;stroke-width: 7px;stroke-linecap: round;filter:url(#shadow);" cx="50" cy="50" r="45"/>
+        </svg>
+    </div>
+
+  
+  </div>
+    <!--compenents End-->
+
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+
+  <script>
+    {{ map.script.render|safe }}
+
+
+
+    
+    
+  </script>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="static/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/vendor/chart.js/chart.umd.js"></script>
+  <script src="static/vendor/echarts/echarts.min.js"></script>
+  <script src="static/vendor/quill/quill.min.js"></script>
+  <script src="static/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="static/vendor/tinymce/tinymce.min.js"></script>
+  <script src="static/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="static/js/main.js"></script>
+  <div style="margin-right:320px; margin-top: 200PX; position: relative; width: 50%; height: 50%; z-index: -9999;">
+    <div class="solar-system">
+      <div class="circle"></div>
+      <div class="sun">
+        <div class="earth">
+          <div class="moon">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
